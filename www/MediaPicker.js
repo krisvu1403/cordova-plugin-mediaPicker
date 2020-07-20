@@ -10,7 +10,7 @@ var MediaPicker = {
     },
     takePhoto:function(cameraOptions,success, error) {
         cameraOptions.destinationType= Camera.DestinationType.FILE_URI; //only support FILE_URI
-        navigator.camera.getPicture(function(arg0){
+        navigator.camera.getPicture(cameraOptions, function(arg0){
             MediaPicker.getFileInfo(arg0,"uri", function(media) {
                 success(media);
             }, function(e) { console.log(e) }); }, function(arg1){
